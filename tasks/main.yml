@@ -1,0 +1,49 @@
+---
+
+# MacPorts
+- name: Install dev tools (MacPorts)
+  macports: name={{ item }} state=installed
+  with_items:
+    - ansible
+    - libxml2 # required for nokogiri
+    - libxslt # required for nokogiri
+    - py27-pip
+    - ruby19
+    - ruby20
+    - ruby21
+    - sqlite3
+  when: ansible_pkg_mgr == 'macports'
+- name: port select pip pip27
+  script: common/port-select.sh pip pip27
+  register: selected
+  changed_when: selected.stdout.find('already active') == -1
+  when: ansible_pkg_mgr == 'macports'
+- name: port select ruby ruby21
+  script: common/port-select.sh ruby ruby21
+  register: selected
+  changed_when: selected.stdout.find('already active') == -1
+  when: ansible_pkg_mgr == 'macports'
+- name: port select python python27
+  script: common/port-select.sh python python27
+  register: selected
+  changed_when: selected.stdout.find('already active') == -1
+  when: ansible_pkg_mgr == 'macports'
+
+# Homebrew
+- name: Install dev tools (Homebrew)
+  homebrew: name={{ item }} state=installed
+  become: true
+  become_user: "{{ dev_tools_user }}"
+  with_items:
+    - ansible
+    - libxml2
+    - libxslt
+    - ruby
+    - sqlite
+  when: ansible_pkg_mgr == 'homebrew'
+- name: install dev gems
+  command: su - {{ dev_tools_user }} -c "cd && source .rvm/scripts/rvm && gem install --no-rdoc --no-ri {{ item.name }}" creates="{{ dev_tools_user_home }}/.rvm/gems/ruby-{{ rvm_ruby_version }}/bin/{{ item.bin }}"
+  with_items:
+    - { name: 'dotenv', bin: 'dotenv' }
+    - { name: 'git_go', bin: 'gg' }
+    - { name: 'scide', bin: 'scide' }
