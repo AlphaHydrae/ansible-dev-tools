@@ -1,3 +1,5 @@
 ---
 dev_tools_user: "{{ user | default(omit) }}"
 dev_tools_user_home: "{{ host_user_homes }}/{{ dev_tools_user }}"
+dev_tools_homebrew_user: "{{ homebrew_user | default(dev_tools_user) | default(omit) }}"
+dev_tools_rvm_ruby_version: "{{ rvm_ruby_version | default(omit) }}"

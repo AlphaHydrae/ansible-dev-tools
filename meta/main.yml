@@ -19,4 +19,9 @@ dependencies:
   - role: AlphaHydrae.cli-tools
   - role: AlphaHydrae.go
   - role: AlphaHydrae.python
-  - role: AlphaHydrae.rvm
+  - role: AlphaHydrae.rvm-gems
+    rvm_gems:
+      - name: dotenv
+      - name: git_go
+        bin: gg
+      - name: scide
