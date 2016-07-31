@@ -7,6 +7,7 @@
   become_user: "{{ dev_tools_homebrew_user }}"
   with_items:
     - ansible
+    - ctags
     - libxml2
     - libxslt
     - ruby
