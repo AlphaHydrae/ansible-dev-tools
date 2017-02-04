@@ -8,6 +8,7 @@
   with_items:
     - ansible
     - ctags
+    - heroku
     - libxml2
     - libxslt
     - ruby
