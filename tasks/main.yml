@@ -7,10 +7,14 @@
   become_user: "{{ dev_tools_homebrew_user }}"
   with_items:
     - ansible
+    - cmake
     - ctags
+    - gradle
     - heroku
+    - imagemagick
     - libxml2
     - libxslt
+    - openshift-cli
     - ruby
     - sqlite
   when: ansible_pkg_mgr == 'homebrew'
