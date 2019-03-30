@@ -2,17 +2,24 @@
 
 # Homebrew
 - name: Install dev tools (Homebrew)
-  homebrew: name={{ item }} state=present
+  homebrew:
+    name:
+      - ansible
+      - composer
+      - ctags
+      - gradle
+      - heroku/brew/heroku
+      - jenv
+      - libxml2
+      - libxslt
+      - openshift-cli
+      - rabbitmq
+      - ruby
+      - sqlite
+      - typescript
+    state: present
   become: true
   become_user: "{{ dev_tools_homebrew_user }}"
-  with_items:
-    - ansible
-    - ctags
-    - heroku
-    - libxml2
-    - libxslt
-    - ruby
-    - sqlite
   when: ansible_pkg_mgr == 'homebrew'
 
 # Other package managers
