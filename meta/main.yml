@@ -21,7 +21,7 @@ dependencies:
   - role: AlphaHydrae.python
   - role: AlphaHydrae.rbenv-gems
     rbenv_gems:
+      - name: bundler
+        bin: bundle
       - name: dotenv
-      - name: git_go
-        bin: gg
       - name: scide
