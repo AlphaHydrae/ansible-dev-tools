@@ -6,6 +6,7 @@
     name:
       - ansible
       - composer
+      - cmake
       - ctags
       - gradle
       - heroku/brew/heroku
