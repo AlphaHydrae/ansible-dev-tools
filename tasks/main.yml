@@ -18,6 +18,7 @@
       - ruby
       - sqlite
       - typescript
+      - upx
     state: present
   become: true
   become_user: "{{ dev_tools_homebrew_user }}"
