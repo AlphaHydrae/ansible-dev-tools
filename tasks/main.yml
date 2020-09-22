@@ -17,10 +17,17 @@
       - protobuf
       - protobuf-c
       - rabbitmq
-      - ruby
       - sqlite
-      - typescript
       - upx
+      # Also install the latest version of some programming languages with
+      # Homebrew, in case some tool does not have the PATH set up correctly for
+      # asdf.
+      - elm
+      - node
+      - python
+      - python3
+      - ruby
+      - typescript
     state: present
   become: true
   become_user: "{{ dev_tools_homebrew_user }}"
