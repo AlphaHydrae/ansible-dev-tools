@@ -21,5 +21,4 @@ dependencies:
     ruby_gems:
       - name: bundler
         bin: bundle
-      - name: dotenv
       - name: scide
