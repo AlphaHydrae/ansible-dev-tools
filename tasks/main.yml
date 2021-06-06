@@ -23,6 +23,7 @@
       # Homebrew, in case some tool does not have the PATH set up correctly for
       # asdf.
       - elm
+      - mit-scheme
       - node
       - python
       - python3
