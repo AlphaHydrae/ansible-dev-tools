@@ -13,6 +13,7 @@
       - heroku/brew/heroku
       - libxml2
       - libxslt
+      - maven
       - openshift-cli
       - protobuf
       - protobuf-c
