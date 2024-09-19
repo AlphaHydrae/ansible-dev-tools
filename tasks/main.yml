@@ -14,7 +14,6 @@
       - libxml2
       - libxslt
       - maven
-      - openshift-cli
       - protobuf
       - protobuf-c
       - rabbitmq
