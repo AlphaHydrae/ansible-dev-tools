@@ -1,5 +1,13 @@
 ---
 
+# Homebrew tap
+- name: Tap Heroku
+  homebrew_tap:
+    name: heroku/brew
+  become: true
+  become_user: "{{ dev_tools_homebrew_user }}"
+  when: ansible_pkg_mgr == 'homebrew'
+
 # Homebrew
 - name: Install dev tools (Homebrew)
   homebrew:
@@ -10,7 +18,7 @@
       - ctags
       - gcc
       - gradle
-      - heroku/brew/heroku
+      - heroku
       - libxml2
       - libxslt
       - maven
