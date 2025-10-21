@@ -34,7 +34,6 @@
       - mit-scheme
       - node
       - python
-      - python3
       - ruby
       - typescript
     state: present
